@@ -6,8 +6,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "mongo": "mongod --dbpath ./db --port 12345",
-    "parse": "./node_modules/.bin/parse",
+    "mongo": "mongod --dbpath ./db --port 27017",
+    "parse": "rm data.json && ./node_modules/.bin/parse",
     "server": "node server.js"
   },
   "dependencies": {
@@ -19,6 +19,8 @@
     "request": "^2.60.0",
     "sfacts": "0.0.12",
     "slack-client": "~1.2.2",
-    "superscript": "^0.8.9"
+    "superscript": "^0.8.9",
+    "weather-js": "^1.0.2",
+    "youtube-node": "^1.2.0"
   }
 }

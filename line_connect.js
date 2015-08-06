@@ -6,7 +6,7 @@ var config = require('./config/beta/configurations.json');
 
 var superscript = require("superscript");
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:12345/line');
+mongoose.connect('mongodb://localhost:27017/line');
 
 // slack-client provides auth and sugar around dealing with the RealTime API.
 //var Slack = require("slack-client");
@@ -30,7 +30,8 @@ function listen(app) {
 	  		console.log('bot instance cannot be initialized');
 	  		return;
 	  	}
-	  	app.post('/events', startParseContent);
+	  	console.log('bot is initialized');
+	  	app.post('/events', verifySigniture, startParseContent);
 	  	BotInstance = botInstance;
 	  });
 	});
@@ -107,7 +108,11 @@ function replyFromMessage(content) {
 	}
 	var mid = content.from;
 	var text = content.text;
+	console.log('receiving from ' + mid + ' :' + text);
 	BotInstance.reply(mid, text, function(err, reply) {
+		if (reply.replyId === undefined) {
+			return;
+		}
 		replyText(mid, reply.string, function() {});
 	});
 }
