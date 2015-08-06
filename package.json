@@ -1,7 +1,7 @@
 {
   "name": "linebot",
   "config": {
-    "node_port": "8088"
+    "node_port": "8080"
   },
   "version": "0.0.1",
   "private": true,

@@ -30,7 +30,6 @@ function listen(app) {
 	  		console.log('bot instance cannot be initialized');
 	  		return;
 	  	}
-	  	console.log('initialized');
 	  	app.post('/events', startParseContent);
 	  	BotInstance = botInstance;
 	  });
@@ -50,8 +49,7 @@ function verifySigniture(req, res, next) {
 }
 
 function startParseContent(req, res) {
-	var results = req;
-	console.log(req);
+	var results = req.body.result;
 	if (!results || !results.length) {
 		// ask for resend
 		res.status(300).end();
@@ -115,7 +113,7 @@ function replyFromMessage(content) {
 }
 
 function replyText(mid, text, callback) {
-	replyToLine(who, {
+	replyToLine(mid, {
 		contentType: 1,
 		toType: 1,
 		text: text

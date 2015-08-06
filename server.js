@@ -12,6 +12,7 @@ var config = require('./config/beta/configurations.json');
 var http = express();
 var port = config.port || pkg.config.node_port;
 
+http.use(bodyParser.json());
 
 LineConnect.listen(http);
 
