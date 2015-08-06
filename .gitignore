@@ -1,0 +1,7 @@
+data.json
+node_modules
+botfacts
+logs
+db/*
+config/**/*
+systemDB

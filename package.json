@@ -1,0 +1,24 @@
+{
+  "name": "linebot",
+  "config": {
+    "node_port": "8088"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "mongo": "mongod --dbpath ./db --port 12345",
+    "parse": "./node_modules/.bin/parse",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "crypto-js": "^3.1.5",
+    "debug": "~2.0.0",
+    "express": "^4.13.3",
+    "mongoose": "3.8.24",
+    "request": "^2.60.0",
+    "sfacts": "0.0.12",
+    "slack-client": "~1.2.2",
+    "superscript": "^0.8.9"
+  }
+}
